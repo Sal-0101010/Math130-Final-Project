@@ -7,6 +7,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * OpeningScene modifies and helps with the functionality of the first/opening scene.
+ * @author Sal Garcia
+ */
 public class OpeningScene extends Application {
     @Override
     public void start(Stage stage) throws IOException {

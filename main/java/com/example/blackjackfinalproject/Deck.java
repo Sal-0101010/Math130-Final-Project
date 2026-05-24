@@ -2,9 +2,16 @@ package com.example.blackjackfinalproject;
 
 import java.util.ArrayList;
 import java.util.Random;
-//is a collection of cards
-//methods: value, suit, one decks, parent class: card collection w the sub-classes Hand, Deck
+
+/**
+ * Deck is one of the child classes of CardCollection and has all the functions that a deck would have
+ * such as suffle and draw.
+ * @author Sal Garcia
+ */
 public class Deck extends CardCollection {
+    /**
+     * default constructor that initalizes the deck in order from Ace to King suit from suit.
+     */
     public Deck()
     {
         char[] suits = { Card.HEART, Card.DIAMOND, Card.CLUB, Card.SPADE};
@@ -15,6 +22,9 @@ public class Deck extends CardCollection {
         }
     }
 
+    /**
+     * shuffles the deck in a random order.
+     */
     public void shuffle(){
         Random rand = new Random();
         ArrayList<Card> deck = getCardCollection();
@@ -31,6 +41,10 @@ public class Deck extends CardCollection {
         }
     }
 
+    /**
+     * takes the first card of the deck, removes it and then returns the card that was pulled.
+     * @return Card
+     */
     public Card draw()
     {
         Card card = getCardCollection().getFirst();

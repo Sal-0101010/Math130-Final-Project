@@ -7,6 +7,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
+/**
+ * RunGame helps the game, black jack, function and run the game smoothly with the use of the
+ * Player, Dealer, Card, and Deck clesses.
+ * @author Sal Garcia
+ */
 public class RunGame {
     @FXML
     private Button hitButton;
@@ -33,6 +38,9 @@ public class RunGame {
     private Dealer dealer;
     private Card card;
 
+    /**
+     *initalizes the Deck, Player, and Dealer objects for the game and shuffles the deck.
+     */
     @FXML
     public void initialize(){
         deck = new Deck();
@@ -41,6 +49,13 @@ public class RunGame {
         dealer = new Dealer();
     }
 
+    /**
+     * allows for when the hit button is clicked it will pull a card from the deck,
+     * change the text that displays the player's hand value, display the card on the screen, and check if the card
+     * that was pulled was an Ace.
+     *
+     * @param event
+     */
     @FXML
     public void onHitButtonClick(ActionEvent event) {
         Card cardPulled = deck.draw();
@@ -60,6 +75,11 @@ public class RunGame {
         }
     }
 
+    /**
+     * when the AceToOne button is clicked it will set the value of the ace that was recently pulled to 1;
+     * @param event
+     */
+
     @FXML
     public void onAceToOneClick(ActionEvent event) {
         int lastIndex = player.getHand().getCardCollection().size() - 1;
@@ -68,7 +88,10 @@ public class RunGame {
 
         afterAceChoice();
     }
-
+    /**
+     * when the AceToEleven button is clicked it will set the value of the ace that was recently pulled to 11;
+     * @param event
+     */
     @FXML
     public void onAceToElevenClick(ActionEvent event) {
         int lastIndex = player.getHand().getCardCollection().size() - 1;
@@ -78,6 +101,10 @@ public class RunGame {
         afterAceChoice();
     }
 
+    /**
+     * called when an ace is pulled and disables the hit, stand, and deal buttons and enable the 11 and 1 buttons
+     * for aces. Also making the 11 and 1 buttons visible.
+     */
     private void aceChoice() {
         aceToOne.setDisable(false);
         aceToOne.setVisible(true);
@@ -88,6 +115,11 @@ public class RunGame {
         dealButton.setDisable(true);
     }
 
+    /**
+     * Called after the value of an ace was chosen it will disable the 11 and 1 button and enable the stand, hit,
+     * and deal buttons again as well as hide the 11 and 1 button. Also sets the value of the player's hand and checks
+     * if they busted after the new value chosen.
+     */
     private void afterAceChoice() {
         aceToOne.setDisable(true);
         aceToOne.setVisible(false);
@@ -101,6 +133,10 @@ public class RunGame {
         checkPlayerBust();
     }
 
+    /**
+     * checks if the players hand is over 21 and will disable the hit button and display a text to inform the user
+     * that they have busted.
+     */
     private void checkPlayerBust() {
         Integer playersHandValue = player.getHand().getValue();
         if(playersHandValue > 21)
@@ -110,6 +146,12 @@ public class RunGame {
         }
     }
 
+    /**
+     * will enable all the buttons essential to playing the program and will reset the UI to its default look.
+     * Also, will display the Players hand and the first card of the dealer but the back of the card of the second card
+     * of the dealer, while also displaying the value of the hands.
+     * @param event
+     */
     @FXML
     public void onDealButtonClick(ActionEvent event){
         hitButton.setDisable(false);
@@ -136,6 +178,12 @@ public class RunGame {
         dealersValue.setText(dealerHand.toString());
     }
 
+    /**
+     * when the stand button is clicked it will display what the second card of the dealer's hand is and the dealer will
+     * draw a card until their hand is either over or equal to 17. Then display the total value of the dealer's hand
+     * and who won.
+     * @param event
+     */
     @FXML
     public void onStandButtonClick(ActionEvent event)
     {
@@ -169,6 +217,10 @@ public class RunGame {
             winnerText.setText("You Lost :(");
     }
 
+    /**
+     * displays the value of either the players or dealers hand.
+     * @param player
+     */
     @FXML
     private void setValue(Player player)
     {
@@ -176,6 +228,11 @@ public class RunGame {
         playerValue.setText(playersHandValue.toString());
     }
 
+    /**
+     * displays the card with the same file name passed as a parameter and in the HBox passed as a parameter.
+     * @param fileName
+     * @param destination
+     */
     private void displayCard(String fileName, HBox destination) {
         String path = "/com/example/blackjackfinalproject/images/" + fileName;
         var inputStream = getClass().getResourceAsStream(path);

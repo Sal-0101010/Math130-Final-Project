@@ -1,5 +1,6 @@
 package com.example.blackjackfinalproject;
 
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -13,6 +14,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import java.io.IOException;
 
+/**
+ * connects the two scenes together so when the play button is pressed the scene will change to the second scene.
+ * @author Sal Garcia
+ */
 public class SceneConnector implements Initializable {
 
     @FXML
@@ -28,7 +33,16 @@ public class SceneConnector implements Initializable {
     private Button playButton;
 
 
-    // This runs automatically when the first screen opens
+    /**
+     * displays the spinner and sets the max integer to 4 and the minimum to 1
+     * @param location
+     * The location used to resolve relative paths for the root object, or
+     * {@code null} if the location is not known.
+     *
+     * @param resources
+     * The resources used to localize the root object, or {@code null} if
+     * the root object was not localized.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // Set up your spinner here
@@ -36,7 +50,10 @@ public class SceneConnector implements Initializable {
         players.setValueFactory(spinFactory);
     }
 
-
+    /**
+     * switches the scene from the welcoming scene to the blackjack scene.
+     * @param event
+     */
     @FXML
     private void handleButtonClick(ActionEvent event) {
         try {
