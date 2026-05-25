@@ -100,7 +100,7 @@ public class Card {
      * @return true if card value is between 1 and 13 (inclusive), false otherwise
      */
     public boolean setValue(int value) {
-        if(value >= 1 && value <= 13)
+        if((value >= 1 && value <= 13) || value == 0)
         {
             this.value = value;
             return true;
@@ -247,7 +247,7 @@ public class Card {
         return card.getSuit() + card.getPrintValue() + ".png";
     }
 
-    public Card setValue(Card card, int value)
+    public static Card setValue(Card card, int value)
     {
         card.setValue(value);
         return card;

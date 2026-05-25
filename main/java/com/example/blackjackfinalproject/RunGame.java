@@ -62,15 +62,15 @@ public class RunGame {
         player.addCard(cardPulled);
         String cardImage = Card.getCardImage(cardPulled);
         displayCard(cardImage, playerBox);
-        setValue(player);
+
 
         if (cardPulled.getValue() == 1)
         {
-
             aceChoice();
         }
         else
         {
+            setValue(player);
             checkPlayerBust();
         }
     }
@@ -96,7 +96,7 @@ public class RunGame {
     public void onAceToElevenClick(ActionEvent event) {
         int lastIndex = player.getHand().getCardCollection().size() - 1;
         Card lastCard = player.getHand().getCard(lastIndex);
-        lastCard.setValue(11);
+        lastCard.setValue(0);
 
         afterAceChoice();
     }

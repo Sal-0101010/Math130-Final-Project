@@ -24,8 +24,10 @@ public class Hand extends CardCollection {
         int value = 0;
         for(int i = 0; i < getCardCollection().size(); i++)
         {
-            if(getCard(i).getValue() > 10)
+            if(getCard(i).getValue() > 10 && getCard(i).getValue() <= 13)
                 value += 10;
+            else if(getCard(i).getValue() == 0)
+                value += 11;
             else
                 value += getCard(i).getValue();
 
