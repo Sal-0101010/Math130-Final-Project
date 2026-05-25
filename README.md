@@ -11,7 +11,8 @@ UML
 Video Of Program
 
 
-<img width="370" height="240" alt="Screen Recording 2026-05-24 at 7 11 05 PM" src="https://github.com/user-attachments/assets/36c22aa7-9c5e-4c1b-bf1f-9506541a443b" />
+<img width="2940" height="1912" alt="Screen Recording 2026-05-24 at 7 11 05 PM (1)" src="https://github.com/user-attachments/assets/e30066be-1b66-4a2b-8d23-d0087683b0a0" />
+
 
 
 
